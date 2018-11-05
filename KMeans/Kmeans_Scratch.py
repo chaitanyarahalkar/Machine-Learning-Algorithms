@@ -55,7 +55,7 @@ class KMeans:
 		classification = distances.index(min(distances))
 		return classification
 
-df = pd.read_excel('datasets/titanic.xls')
+df = pd.read_excel('../datasets/titanic.xls')
 df.drop(['body','name'],1,inplace=True)
 df.convert_objects(convert_numeric=True)
 df.fillna(0,inplace=True)

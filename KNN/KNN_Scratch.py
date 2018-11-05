@@ -18,7 +18,7 @@ def k_nearest_neighbors(train_set,data,k=3):
     vote_result = Counter(votes).most_common(1)[0][0]
 
     return vote_result
-df = pd.read_csv('datasets/breast_cancer.csv')
+df = pd.read_csv('../datasets/breast_cancer.csv')
 
 df.drop(['id','Unnamed: 32'],inplace=True,axis=1)
 
