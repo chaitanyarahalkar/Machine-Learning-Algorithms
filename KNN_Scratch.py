@@ -2,8 +2,6 @@ import numpy as np
 import pandas as pd 
 import random 
 from collections import Counter
-from sklearn.model_selection import train_test_split 
-from sklearn import svm
 
 def k_nearest_neighbors(train_set,data,k=3):
     if len(train_set)>= k:
@@ -20,7 +18,7 @@ def k_nearest_neighbors(train_set,data,k=3):
     vote_result = Counter(votes).most_common(1)[0][0]
 
     return vote_result
-df = pd.read_csv('~/Downloads/data.csv')
+df = pd.read_csv('breast_cancer.csv')
 
 df.drop(['id','Unnamed: 32'],inplace=True,axis=1)
 
@@ -33,7 +31,6 @@ for i in total_data:
     data.append(i[1:])
     labels.append(i[0])
 
-X_train, X_test, y_train, y_test = train_test_split(data,labels, test_size=0.4, random_state=0)
 random.shuffle(total_data)
 
 test_size = 0.4 
@@ -68,9 +65,3 @@ for group in test_set:
 print('Accuracy:',correct/total)
 
 
-clf = svm.SVC(kernel='linear',C=1)
-clf.fit(X_train,y_train)
-
-score = clf.score(X_test,y_test)
-
-print(score)
