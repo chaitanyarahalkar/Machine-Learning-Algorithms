@@ -4,7 +4,7 @@ import pandas as pd
 
 
 
-df = pd.read_csv('breast_cancer.csv')
+df = pd.read_csv('datasets/breast_cancer.csv')
 
 df.drop(['id','Unnamed: 32'],inplace=True,axis=1)
 
